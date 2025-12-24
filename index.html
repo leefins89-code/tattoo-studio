@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ink Crown Tattoo Studio - Your Story. Our Ink. Forever.</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <style id="app-style">
+    :root {
+      --color-primary: #000000;
+      --color-secondary: #1a1a1a;
+      --color-tertiary: #2d2d2d;
+      --color-accent: #c41c1c;
+      --color-accent-alt: #d4af37;
+      --color-light: #ffffff;
+      --color-gray: #999999;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-primary);
+      color: var(--color-light);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), url('https://cdn.pixabay.com/photo/2018/09/25/00/32/tattooing-3700756_1280.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      position: relative;
+    }
+
+    .main-heading {
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .sub-heading {
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    .accent-text {
+      color: var(--color-accent);
+    }
+
+    .gold-accent {
+      color: var(--color-accent-alt);
+    }
+
+    .cta-primary {
+      background-color: var(--color-accent);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .cta-primary:hover {
+      background-color: #a51616;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(196, 28, 28, 0.3);
+    }
+
+    .cta-secondary {
+      border: 2px solid var(--color-light);
+      background-color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .cta-secondary:hover {
+      background-color: var(--color-light);
+      color: var(--color-primary);
+      transform: translateY(-3px);
+    }
+
+    .section-heading {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--color-accent);
+    }
+
+    .card {
+      background-color: var(--color-secondary);
+      border-radius: 5px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      transition: all 0.4s ease;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+      z-index: 1;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-card img {
+      transition: all 0.4s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .service-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      z-index: 2;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+
+    .gallery-item img {
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      bottom: 0;
+    }
+
+    .testimonial-card {
+      background-color: var(--color-secondary);
+      border-radius: 5px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .input-field {
+      background-color: rgba(45, 45, 45, 0.8);
+      border: 1px solid #444;
+      color: var(--color-light);
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      background-color: rgba(45, 45, 45, 1);
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(196, 28, 28, 0.2);
+    }
+
+    footer {
+      background-color: var(--color-secondary);
+      position: relative;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-tertiary);
+      color: var(--color-light);
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--color-accent);
+      transform: translateY(-3px);
+    }
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+
+    .sticky-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .navbar {
+      background-color: transparent;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-link {
+      position: relative;
+    }
+
+    .navbar-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--color-accent);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-link:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .benefit-card {
+      background-color: var(--color-secondary);
+      border-left: 3px solid var(--color-accent);
+      transition: all 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .artist-slide {
+      transition: all 0.5s ease;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-tertiary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-accent);
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--color-accent);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar fixed top-0 left-0 w-full py-4 px-6 transition-all duration-300">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="javascript:void(0)" class="text-2xl font-bold flex items-center">
+        <span class="text-white">Ink</span>
+        <span class="text-white mx-1">Crown</span>
+        <i class="fas fa-crown text-yellow-500 ml-2"></i>
+      </a>
+      
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="#about" class="navbar-link text-white hover:text-gray-300 transition-colors">About</a>
+        <a href="#services" class="navbar-link text-white hover:text-gray-300 transition-colors">Services</a>
+        <a href="#artists" class="navbar-link text-white hover:text-gray-300 transition-colors">Artists</a>
+        <a href="#gallery" class="navbar-link text-white hover:text-gray-300 transition-colors">Gallery</a>
+        <a href="#testimonials" class="navbar-link text-white hover:text-gray-300 transition-colors">Testimonials</a>
+        <a href="#contact" class="cta-primary px-6 py-2 rounded-full text-white font-semibold hover:bg-red-700 transition-all">Book Now</a>
+      </div>
+      
+      <button class="lg:hidden text-white text-2xl" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu lg:hidden p-6 flex flex-col">
+    <div class="flex justify-end mb-8">
+      <button id="close-menu" class="text-white text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-6">
+      <a href="#about" class="text-white text-xl hover:text-gray-300 transition-colors">About</a>
+      <a href="#services" class="text-white text-xl hover:text-gray-300 transition-colors">Services</a>
+      <a href="#artists" class="text-white text-xl hover:text-gray-300 transition-colors">Artists</a>
+      <a href="#gallery" class="text-white text-xl hover:text-gray-300 transition-colors">Gallery</a>
+      <a href="#testimonials" class="text-white text-xl hover:text-gray-300 transition-colors">Testimonials</a>
+      <a href="#contact" class="cta-primary px-6 py-3 rounded-full text-white font-semibold text-center mt-4">Book Now</a>
+    </div>
+    <div class="mt-auto pt-8">
+      <div class="social-icons flex mt-6">
+        <a href="javascript:void(0)" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="javascript:void(0)" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="javascript:void(0)" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="javascript:void(0)" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="menu-overlay lg:hidden"></div>
+
+  <!-- Hero Section -->
+  <section class="hero flex items-center justify-center">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="main-heading text-4xl md:text-5xl lg:text-7xl mb-4" data-aos="fade-up" data-aos-delay="100">
+        Your Story. <span class="accent-text">Our Ink.</span> Forever.
+      </h1>
+      <p class="sub-heading text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        Where exceptional artistry meets uncompromising safety standards to transform your vision into timeless body art.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
+        <a href="#contact" class="cta-primary px-8 py-3 rounded-full text-white text-lg font-bold hover:bg-red-700">Book a Session</a>
+        <a href="#gallery" class="cta-secondary px-8 py-3 rounded-full text-white text-lg font-bold hover:bg-white hover:text-black">View Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2" data-aos="fade-right">
+          <h2 class="section-heading text-3xl md:text-4xl font-bold mb-6">About Ink Crown Studio</h2>
+          <p class="mb-6 text-gray-300">
+            Welcome to Ink Crown, where body art transcends the ordinary. Founded on the principle that every tattoo tells a story, we've established ourselves as pioneers in transforming personal narratives into powerful visual statements.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="flex items-start">
+              <i class="fas fa-award text-red-600 text-2xl mr-4 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-xl mb-2">Experienced Artists</h3>
+                <p class="text-gray-400">Our team brings decades of combined expertise across all tattoo styles and techniques.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-shield-alt text-red-600 text-2xl mr-4 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-xl mb-2">Safety First</h3>
+                <p class="text-gray-400">We maintain rigorous hygiene protocols exceeding industry standards for your peace of mind.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-paint-brush text-red-600 text-2xl mr-4 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-xl mb-2">Custom Designs</h3>
+                <p class="text-gray-400">Each piece is meticulously crafted to reflect your unique vision and personal story.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-tools text-red-600 text-2xl mr-4 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-xl mb-2">Premium Equipment</h3>
+                <p class="text-gray-400">We use only top-tier machines and medical-grade inks for superior results.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="cta-primary inline-block px-8 py-3 rounded-full text-white font-bold hover:bg-red-700">Schedule a Consultation</a>
+        </div>
+        <div class="lg:w-1/2 rounded-lg overflow-hidden shadow-2xl" data-aos="fade-left">
+          <img src="https://cdn.pixabay.com/photo/2017/08/01/13/34/tattoo-2565755_1280.jpg" alt="Tattoo artist working in studio" class="w-full h-full object-cover rounded-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Tattoo Styles & Services</h2>
+        <p class="max-w-3xl mx-auto text-gray-400">Discover our range of premium tattoo styles and services, each delivered with uncompromising quality and artistic excellence.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Custom Tattoos -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491_1280.jpg" alt="Custom Tattoo Design" class="w-full h-64 object-cover">
+          <div class="service-card-content">
+            <h3 class="text-2xl font-bold mb-2">Custom Tattoos</h3>
+            <p class="text-gray-300 mb-4">Unique designs crafted specifically for you, bringing your vision to life with expert precision.</p>
+            <a href="#contact" class="text-red-600 hover:text-red-400 font-semibold flex items-center">
+              Learn More
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Black & Grey Tattoos -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://cdn.pixabay.com/photo/2019/06/13/07/06/black-and-grey-4271088_1280.jpg" alt="Black and Grey Tattoo" class="w-full h-64 object-cover">
+          <div class="service-card-content">
+            <h3 class="text-2xl font-bold mb-2">Black & Grey Tattoos</h3>
+            <p class="text-gray-300 mb-4">Timeless monochromatic masterpieces with stunning depth, shading, and contrast.</p>
+            <a href="#contact" class="text-red-600 hover:text-red-400 font-semibold flex items-center">
+              Learn More
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Color Tattoos -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://cdn.pixabay.com/photo/2019/03/05/08/18/tattoo-4036068_1280.jpg" alt="Color Tattoo Design" class="w-full h-64 object-cover">
+          <div class="service-card-content">
+            <h3 class="text-2xl font-bold mb-2">Color Tattoos</h3>
+            <p class="text-gray-300 mb-4">Vibrant, long-lasting color work that maintains its brilliance through expert technique.</p>
+            <a href="#contact" class="text-red-600 hover:text-red-400 font-semibold flex items-center">
+              Learn More
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Fine Line Tattoos -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://cdn.pixabay.com/photo/2018/01/12/11/15/woman-3078121_1280.jpg" alt="Fine Line Tattoo" class="w-full h-64 object-cover">
+          <div class="service-card-content">
+            <h3 class="text-2xl font-bold mb-2">Fine Line Tattoos</h3>
+            <p class="text-gray-300 mb-4">Delicate, precise linework creating elegant, intricate designs with minimal invasion.</p>
+            <a href="#contact" class="text-red-600 hover:text-red-400 font-semibold flex items-center">
+              Learn More
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Cover-Up Tattoos -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://cdn.pixabay.com/photo/2018/12/04/23/15/devil-tattoo-3856870_1280.jpg" alt="Cover-Up Tattoo" class="w-full h-64 object-cover">
+          <div class="service-card-content">
+            <h3 class="text-2xl font-bold mb-2">Cover-Up Tattoos</h3>
+            <p class="text-gray-300 mb-4">Expert transformation of unwanted tattoos into new artworks you'll be proud to display.</p>
+            <a href="#contact" class="text-red-600 hover:text-red-400 font-semibold flex items-center">
+              Learn More
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Minimalist Tattoos -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://cdn.pixabay.com/photo/2017/11/14/17/39/tattoo-2949399_1280.jpg" alt="Minimalist Tattoo Design" class="w-full h-64 object-cover">
+          <div class="service-card-content">
+            <h3 class="text-2xl font-bold mb-2">Minimalist Tattoos</h3>
+            <p class="text-gray-300 mb-4">Simple yet impactful designs that convey profound meaning through clean, essential elements.</p>
+            <a href="#contact" class="text-red-600 hover:text-red-400 font-semibold flex items-center">
+              Learn More
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artists Section -->
+  <section id="artists" class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Artists</h2>
+        <p class="max-w-3xl mx-auto text-gray-400">Our team of exceptional artists brings diverse expertise and passion to every piece they create.</p>
+      </div>
+      
+      <div class="artist-slider">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Artist 1 -->
+          <div class="card p-6" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843_1280.jpg" alt="Alex Morgan - Tattoo Artist" class="w-full h-64 object-cover rounded-lg mb-6">
+            <h3 class="text-2xl font-bold mb-2">Alex Morgan</h3>
+            <p class="text-red-600 font-semibold mb-3">Specializes in Black & Grey Realism</p>
+            <p class="text-gray-400 mb-4">With 12 years of experience and multiple international awards, Alex creates breathtaking photorealistic portraits and nature scenes.</p>
+            <div class="flex space-x-2">
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Portraits</span>
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Wildlife</span>
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Realism</span>
+            </div>
+          </div>
+          
+          <!-- Artist 2 -->
+          <div class="card p-6" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491_1280.jpg" alt="Maya Chen - Tattoo Artist" class="w-full h-64 object-cover rounded-lg mb-6">
+            <h3 class="text-2xl font-bold mb-2">Maya Chen</h3>
+            <p class="text-red-600 font-semibold mb-3">Specializes in Fine Line & Minimalism</p>
+            <p class="text-gray-400 mb-4">Maya's delicate linework and attention to detail have made her one of the most sought-after artists for subtle, elegant pieces.</p>
+            <div class="flex space-x-2">
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Fine Line</span>
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Geometric</span>
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Botanical</span>
+            </div>
+          </div>
+          
+          <!-- Artist 3 -->
+          <div class="card p-6" data-aos="fade-up" data-aos-delay="300">
+            <img src="https://cdn.pixabay.com/photo/2015/03/16/16/49/woman-676275_1280.jpg" alt="Jackson Reed - Tattoo Artist" class="w-full h-64 object-cover rounded-lg mb-6">
+            <h3 class="text-2xl font-bold mb-2">Jackson Reed</h3>
+            <p class="text-red-600 font-semibold mb-3">Specializes in Neo-Traditional & Color</p>
+            <p class="text-gray-400 mb-4">Known for his bold color palettes and modern take on traditional tattoo styles, Jackson creates pieces that pop with vibrant energy.</p>
+            <div class="flex space-x-2">
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Neo-Traditional</span>
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Japanese</span>
+              <span class="px-3 py-1 bg-gray-800 text-xs rounded-full">Color Work</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Tattoo Gallery</h2>
+        <p class="max-w-3xl mx-auto text-gray-400">Browse our portfolio of custom designs and completed works showcasing our artistic range and technical precision.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <!-- Gallery Item 1 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://cdn.pixabay.com/photo/2018/02/27/04/09/tattoo-3184630_1280.jpg" alt="Sleeve Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Neo-Traditional Sleeve</h4>
+            <p class="text-sm text-gray-300">Artist: Jackson Reed</p>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 2 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+          <img src="https://cdn.pixabay.com/photo/2017/11/14/17/39/tattoo-2949399_1280.jpg" alt="Minimalist Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Minimalist Mountain Line</h4>
+            <p class="text-sm text-gray-300">Artist: Maya Chen</p>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 3 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://cdn.pixabay.com/photo/2016/03/27/17/12/tattoo-1283305_1280.jpg" alt="Back Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Custom Back Piece</h4>
+            <p class="text-sm text-gray-300">Artist: Alex Morgan</p>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 4 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+          <img src="https://cdn.pixabay.com/photo/2019/03/05/08/18/tattoo-4036068_1280.jpg" alt="Colorful Forearm Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Vibrant Floral Forearm</h4>
+            <p class="text-sm text-gray-300">Artist: Jackson Reed</p>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 5 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://cdn.pixabay.com/photo/2017/01/17/07/45/heart-1986105_1280.jpg" alt="Small Wrist Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Fine Line Heart</h4>
+            <p class="text-sm text-gray-300">Artist: Maya Chen</p>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 6 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+          <img src="https://cdn.pixabay.com/photo/2017/08/01/13/34/tattoo-2565755_1280.jpg" alt="Detailed Arm Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Black & Grey Portrait</h4>
+            <p class="text-sm text-gray-300">Artist: Alex Morgan</p>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 7 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+          <img src="https://cdn.pixabay.com/photo/2019/06/13/07/06/black-and-grey-4271088_1280.jpg" alt="Black and Grey Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Skull and Rose</h4>
+            <p class="text-sm text-gray-300">Artist: Jackson Reed</p>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 8 -->
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="450">
+          <img src="https://cdn.pixabay.com/photo/2016/11/21/17/57/animal-1846462_1280.jpg" alt="Geometric Animal Tattoo" class="w-full h-72 object-cover">
+          <div class="gallery-item-overlay">
+            <h4 class="font-bold text-lg mb-1">Geometric Wolf</h4>
+            <p class="text-sm text-gray-300">Artist: Maya Chen</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="javascript:void(0)" class="cta-primary inline-block px-8 py-3 rounded-full text-white font-bold hover:bg-red-700">View Complete Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Ink Crown</h2>
+        <p class="max-w-3xl mx-auto text-gray-400">Experience the difference that comes with our commitment to excellence, safety, and artistic innovation.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Benefit 1 -->
+        <div class="benefit-card p-6" data-aos="fade-right" data-aos-delay="100">
+          <div class="flex items-start">
+            <div class="mr-4 text-red-600">
+              <i class="fas fa-medal text-4xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-3">Award-Winning Artists</h3>
+              <p class="text-gray-400">Our team includes internationally recognized tattoo artists with decades of combined experience and a passion for continuous artistic growth.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Benefit 2 -->
+        <div class="benefit-card p-6" data-aos="fade-left" data-aos-delay="150">
+          <div class="flex items-start">
+            <div class="mr-4 text-red-600">
+              <i class="fas fa-shield-virus text-4xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-3">Uncompromising Hygiene</h3>
+              <p class="text-gray-400">We exceed all health and safety regulations with single-use needles, sterilized equipment, and hospital-grade sanitation protocols.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Benefit 3 -->
+        <div class="benefit-card p-6" data-aos="fade-right" data-aos-delay="200">
+          <div class="flex items-start">
+            <div class="mr-4 text-red-600">
+              <i class="fas fa-lightbulb text-4xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-3">Custom Designs Only</h3>
+              <p class="text-gray-400">We don't do cookie-cutter tattoos. Each piece is designed specifically for you, ensuring your tattoo is as unique as your story.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Benefit 4 -->
+        <div class="benefit-card p-6" data-aos="fade-left" data-aos-delay="250">
+          <div class="flex items-start">
+            <div class="mr-4 text-red-600">
+              <i class="fas fa-thumbs-up text-4xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-3">Client Satisfaction Guarantee</h3>
+              <p class="text-gray-400">Your happiness is our priority. We work with you through every step of the process to ensure you love your new tattoo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Client Testimonials</h2>
+        <p class="max-w-3xl mx-auto text-gray-400">Hear what our clients have to say about their experience at Ink Crown Tattoo Studio.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center mb-4">
+            <div class="text-yellow-500">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-300 mb-6">"Maya created the most incredible fine line piece for my wrist. The detail is extraordinary and the entire experience was so comfortable. I'll definitely be back for more!"</p>
+          <div class="flex items-center">
+            <div class="mr-3 h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
+              JD
+            </div>
+            <div>
+              <h4 class="font-bold">Jamie Davis</h4>
+              <p class="text-sm text-gray-400">First tattoo client</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center mb-4">
+            <div class="text-yellow-500">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-300 mb-6">"Alex completely transformed my old, faded tattoo into something beautiful. The level of detail in his black and grey work is unmatched. Worth every penny and more."</p>
+          <div class="flex items-center">
+            <div class="mr-3 h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
+              KL
+            </div>
+            <div>
+              <h4 class="font-bold">Kevin Liu</h4>
+              <p class="text-sm text-gray-400">Cover-up client</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center mb-4">
+            <div class="text-yellow-500">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-300 mb-6">"I've been to many studios, but Ink Crown is truly exceptional. Jackson created a colorful sleeve that exceeds anything I could have imagined. The cleanliness and professionalism are top-notch."</p>
+          <div class="flex items-center">
+            <div class="mr-3 h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
+              SM
+            </div>
+            <div>
+              <h4 class="font-bold">Sarah Morrison</h4>
+              <p class="text-sm text-gray-400">Sleeve project client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking & Contact Section -->
+  <section id="contact" class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Book Your Session</h2>
+        <p class="max-w-3xl mx-auto text-gray-400">Ready to start your tattoo journey? Book a consultation or appointment with our team of expert artists.</p>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Booking Form -->
+        <div class="lg:w-1/2" data-aos="fade-right">
+          <form id="booking-form" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                <input type="text" id="name" name="name" class="input-field w-full px-4 py-3 rounded-lg" required>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                <input type="email" id="email" name="email" class="input-field w-full px-4 py-3 rounded-lg" required>
+              </div>
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="input-field w-full px-4 py-3 rounded-lg" required>
+            </div>
+            <div>
+              <label for="service" class="block text-sm font-medium text-gray-400 mb-2">Service Type</label>
+              <select id="service" name="service" class="input-field w-full px-4 py-3 rounded-lg" required>
+                <option value="" selected disabled>Select a service</option>
+                <option value="custom">Custom Tattoo</option>
+                <option value="blackgrey">Black & Grey Tattoo</option>
+                <option value="color">Color Tattoo</option>
+                <option value="fineline">Fine Line Tattoo</option>
+                <option value="coverup">Cover-Up Tattoo</option>
+                <option value="minimalist">Minimalist Tattoo</option>
+              </select>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="date" class="block text-sm font-medium text-gray-400 mb-2">Preferred Date</label>
+                <input type="date" id="date" name="date" class="input-field w-full px-4 py-3 rounded-lg" required>
+              </div>
+              <div>
+                <label for="time" class="block text-sm font-medium text-gray-400 mb-2">Preferred Time</label>
+                <select id="time" name="time" class="input-field w-full px-4 py-3 rounded-lg" required>
+                  <option value="" selected disabled>Select a time</option>
+                  <option value="morning">Morning (10am - 12pm)</option>
+                  <option value="afternoon">Afternoon (1pm - 4pm)</option>
+                  <option value="evening">Evening (5pm - 8pm)</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Tell Us About Your Tattoo Idea</label>
+              <textarea id="message" name="message" rows="4" class="input-field w-full px-4 py-3 rounded-lg resize-none" required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" id="submit-button" class="cta-primary px-8 py-3 rounded-full text-white font-bold w-full md:w-auto">Submit Booking Request</button>
+              <div id="form-status" class="mt-4 hidden"></div>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-4">Studio Location</h3>
+            <div class="bg-gray-800 rounded-lg overflow-hidden h-64">
+              <!-- Map iframe placeholder -->
+              <div class="w-full h-full flex items-center justify-center bg-gray-700 text-center p-6">
+                <p class="text-gray-400">
+                  <i class="fas fa-map-marker-alt text-red-600 text-4xl mb-4"></i><br>
+                  123 Ink Avenue, Downtown<br>
+                  New York, NY 10001
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4">Studio Hours</h3>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex justify-between">
+                  <span>Monday - Friday:</span>
+                  <span>10:00 AM - 8:00 PM</span>
+                </li>
+                <li class="flex justify-between">
+                  <span>Saturday:</span>
+                  <span>11:00 AM - 9:00 PM</span>
+                </li>
+                <li class="flex justify-between">
+                  <span>Sunday:</span>
+                  <span>12:00 PM - 6:00 PM</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center">
+                  <i class="fas fa-phone mr-3 text-red-600"></i>
+                  <span>(212) 555-INK1</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-envelope mr-3 text-red-600"></i>
+                  <span>info@inkcrownstudio.com</span>
+                </li>
+              </ul>
+              
+              <div class="social-icons flex mt-6">
+                <a href="javascript:void(0)" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="javascript:void(0)" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="javascript:void(0)" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="javascript:void(0)" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="javascript:void(0)" class="text-2xl font-bold flex items-center">
+            <span class="text-white">Ink</span>
+            <span class="text-white mx-1">Crown</span>
+            <i class="fas fa-crown text-yellow-500 ml-2"></i>
+          </a>
+          <p class="text-gray-400 mt-2">Your Story. Our Ink. Forever.</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center md:justify-end gap-6">
+          <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+          <a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+          <a href="#artists" class="text-gray-300 hover:text-white transition-colors">Artists</a>
+          <a href="#gallery" class="text-gray-300 hover:text-white transition-colors">Gallery</a>
+          <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors">Testimonials</a>
+          <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+      
+      <hr class="border-gray-800 my-8">
+      
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Ink Crown Tattoo Studio. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="javascript:void(0)" class="text-gray-500 hover:text-gray-300 text-sm">Privacy Policy</a>
+          <a href="javascript:void(0)" class="text-gray-500 hover:text-gray-300 text-sm">Terms of Service</a>
+        </div>
+      </div>
+      
+      <div class="mt-6 text-center">
+        <p class="text-gray-600 text-xs">Must be 18 years or older for tattoo services. ID required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA Button -->
+  <div class="sticky-cta">
+    <a href="#contact" class="cta-primary px-6 py-3 rounded-full text-white font-bold shadow-lg flex items-center">
+      <i class="fas fa-calendar-check mr-2"></i>
+      Book a Session
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script id="app-script">
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    const stickyCta = document.querySelector('.sticky-cta');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+        stickyCta.classList.add('visible');
+      } else {
+        navbar.classList.remove('scrolled');
+        stickyCta.classList.remove('visible');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    closeMenu.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    menuOverlay.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Form handling
+    const bookingForm = document.getElementById('booking-form');
+    const submitButton = document.getElementById('submit-button');
+    const formStatus = document.getElementById('form-status');
+    
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+      
+      // Save form data to LocalStorage
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      localStorage.setItem('lastSelectedService', service);
+      localStorage.setItem('lastSelectedDate', date);
+      
+      // Simulate API call with timeout
+      setTimeout(function() {
+        formStatus.classList.remove('hidden');
+        formStatus.innerHTML = '<div class="bg-green-900 text-green-100 p-4 rounded-lg">Thank you for your booking request! We will contact you shortly to confirm your appointment. This is a prototype, continue building to see the full version.</div>';
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Submit Booking Request';
+        bookingForm.reset();
+      }, 1500);
+    });
+    
+    // Check for saved form data
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedService = localStorage.getItem('lastSelectedService');
+      const savedDate = localStorage.getItem('lastSelectedDate');
+      
+      if (savedService) {
+        document.getElementById('service').value = savedService;
+      }
+      
+      if (savedDate) {
+        document.getElementById('date').value = savedDate;
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          mobileMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
